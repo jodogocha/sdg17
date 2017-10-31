@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Nombre:</strong>
+  <%= raw @resolutions_type.nombre %>
+</p>
+
+<p>
+  <strong>Visto:</strong>
+  <%= raw @resolutions_type.visto %>
+</p>
+
+<p>
+  <strong>Considerando:</strong>
+  <%= raw @resolutions_type.considerando %>
+</p>
+
+<p>
+  <strong>Resuelve:</strong>
+  <%= raw @resolutions_type.resuelve %>
+</p>
+
+<%= link_to 'Edit', edit_resolutions_type_path(@resolutions_type) %> |
+<%= link_to 'Back', resolutions_types_path %>

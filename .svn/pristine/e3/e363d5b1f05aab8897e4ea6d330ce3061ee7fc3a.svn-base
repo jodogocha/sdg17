@@ -1,0 +1,4 @@
+<h1>Editar Persona</h1>
+
+<%= render 'form', person: @person %>
+

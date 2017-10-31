@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+ 
+</head>
+<body>
+	<div class="box box">
+	    <div class="box-header with-border">
+	     	<h1><center>CRM</center></h1> 
+	    </div>
+	    <!-- /.box-header -->
+	    <div class="box-body">
+			<div class="container-fluid"> 
+			    <div class="row">
+			    	<div class="col-md-8">
+			        	<div class="container-fluid"> 
+			        		<div class="row">
+			          			<div class="col-md-2">
+			            			<p>Buscar por:</p>
+			          			</div> 
+			        		<div class="input-group">
+			          			<div class="col-md-5">
+			            			<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">Nro. de Expediente
+			              			<span class="fa fa-caret-down"></span>
+			            			</button>
+					            	<ul class="dropdown-menu">
+					             	 <li><a href="#">Nro. de Cedula</a></li>
+					            	</ul>   
+			          			</div>
+			          			<div class="col-md-5">
+			            			<input type="number" class="form-control">
+			          			</div>
+			        		</div>
+			        		</div>
+			      		</div>
+			      	</div>
+			      	<div class="col-md-4">
+        				<a href="javascript:void(0)" class="btn btn-sm btn-danger pull-right"> <span class="glyphicon glyphicon-remove-circle"></span></a>
+	      				<a href="javascript:void(0)" class="btn btn-sm btn-primary pull-right"><span class="glyphicon glyphicon-search"></span></a>
+      				</div>  
+      
+  				</div>
+  			</div>
+
+				
+	      		<div class="box-footer">
+	      		<table id= "crm-table" class="table table-bordered table-striped">
+			    <thead >
+				    <tr>
+				      <th>Solicitante</th>
+				      <th>N° de expediente</th>
+				      <th>Fecha de solicitud</th>
+				      <th>Estado</th>
+				      <th></th>
+				    </tr>
+				</thead>
+				<tbody>
+				<% @records.each do |record| %>
+      	<tr>
+        <td><%= record.person.nombre if record.person_id %></td>
+        <td><%= record.num_expediente %></td>
+        <td><%= record.fecha %></td>
+        <td></td>
+        <td align="center"><%= link_to '',record,   remote: true, class: 'btn btn-primary glyphicon glyphicon-eye-open', style:"color:white", title: 'Ver'%></td>
+			  </tr>
+				<% end %>
+		    	</tbody>
+			</table>
+			</div>
+	    </div>
+    </div>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

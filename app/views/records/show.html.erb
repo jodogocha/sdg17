@@ -1,0 +1,85 @@
+
+ <div class="box box">
+
+
+ 
+  
+<div class="box-header with-border">
+  <h1><center>Expediente</center></h1> 
+</div>
+
+
+    <div class="col-sm-6 form-group  has-feedback">
+    <label class="col-sm-3 control-label"> Fecha:</label>
+     <div class="col-sm-3">
+     <%=  @record.fecha %>
+    </div>
+
+    
+    <label class="col-sm-1 control-label"> Nro:</label>
+      <div class="col-sm-5">
+        <%=  @record.num_expediente  %>
+      </div>
+  </div>
+  
+
+  <div class="col-sm-6 form-group   has-feedback">
+      <label class="col-sm-3 control-label"> Responsable:</label>
+      <div class="col-sm-9">
+       <%= @record.responsable %>
+      </div>
+    </div>
+
+
+    <div class="col-sm-6 form-group   has-feedback">
+      <label class="col-sm-3 control-label"> Dependencia Actual:</label>
+      <div class="col-sm-9">
+        <%= @record.origen.nombre %>
+      </div>
+    </div>
+    <div class="col-sm-6 form-group   has-feedback">
+      <label class="col-sm-3 control-label"> Dependencia Destino:</label>
+      <div class="col-sm-9">
+        <%= @record.destino.nombre  %>
+      </div>
+    </div>
+    <div class="col-sm-6 form-group   has-feedback">
+      <label class="col-sm-3 control-label"> Clasificacion:</label>
+      <div class="col-sm-9">
+        <%= @record.clasification.nombre %>
+      </div>
+    </div>
+
+    <div class="col-sm-6 form-group   has-feedback">
+      <label class="col-sm-3 control-label"> Solicitante:</label>
+      <div class="col-sm-6">
+        <%= @record.person.nombre %>
+      
+      </div>
+        
+    </div>
+
+    <div class="col-sm-6 form-group   has-feedback">
+      <label class="col-sm-3 control-label"> Descripcion:</label>
+      <div class="col-sm-9">
+       <%= @record.descripcion %>
+      </div>
+    </div>
+
+  <div class="col-sm-6 form-group   has-feedback">
+      <label class="col-sm-3 control-label"> Observacion:</label>
+      <div class="col-sm-9">
+       <%= @record.observacion %>
+      </div>
+    </div>
+    <div class="col-xs-12 modal-footer" >
+          
+          <%= link_to edit_record_path(@record), class: "btn btn-warning", style:"color:white", title: 'Editar', 'data-toggle' => 'tooltip' do %>
+    <spm class="glyphicon glyphicon-pencil small"></spm>
+<% end %> 
+<%= link_to records_path, class: "btn btn-info", style:"color:white", title: 'Volver', 'data-toggle' => 'tooltip', 'data-placement' => 'rigth' do %>
+    <spm class="glyphicon glyphicon-arrow-left small "></spm>
+    <% end %> 
+
+        </div>
+</div>

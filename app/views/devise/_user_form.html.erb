@@ -1,0 +1,42 @@
+<div class="box box-primary"> 
+  <div class="box-header with-border">
+    <h1>Asignar Rol a Usuario</h1>
+  </div>
+	<div class="box-body">  
+	    <div class="row">
+	      <div class="col-xs-12">
+	        <label for="ci">C.I. Número</label>
+	        <input type="text" name="ci">
+	      </div>
+	    </div>
+	      <!-- inicion de autorizaciones-->
+	    <div class="box-body">
+	      <div class="form-group">
+	        <h4 class="box-title">Roles</h4>
+	        <div class="col-md-12">
+	          <table class="table table-bordered table-striped">
+	            <thead>
+	              <tr>
+	                <th>
+	                    <label>Roles</label>
+	                </th>
+	              </tr>
+	            </thead>
+	            <tbody>
+	              <tr>
+	                <td>
+	                    <span>
+	                    	<!--<%if Role.where(id: nil).count > 0%>-->
+	                    		<p><input type="checkbox"> </p>
+	                    	<% end %>
+	                    </span>
+	                 </td>
+
+	              </tr>
+	            </tbody>
+	          </table>
+	        </div>
+	      </div>
+	    </div>
+	</div>
+</div>

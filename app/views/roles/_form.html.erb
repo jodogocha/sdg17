@@ -1,0 +1,108 @@
+<%= form_for(role) do |f| %>
+ 
+  
+  <div class="box-body">  
+    <div class="row">
+      <div class="col-xs-12">
+        <label for="visto">Nombre</label>
+        <%= f.text_field :name, class: "form-control", autofocus: true %>
+      </div>
+    </div>
+    <!-- inicion de autorizaciones-->
+    <div class="form-group">
+      <h4 class="box-title">Acciones</h4>
+      <div class="col-md-12 table-responsive">
+        <table class="table">
+          <thead>
+            <tr>
+              <th>
+                  <label>Usuarios</label>
+              </th>
+              <th>
+                  <label>Personas</label>
+              </th>
+              <th>
+                  <label>Mesa de entrada</label>
+              </th>
+              <th>
+                  <label>Trámites</label>
+              </th>            
+          </thead>
+          <tbody>
+            <tr>
+              <td>
+                <%= hidden_field_tag "role[action_ids][]", nil%>
+                <% for i in 1..4 %>
+                  <% a = Action.find(i) %>
+                  <p> <%= check_box_tag "role[action_ids][]", a.id,  @role.action_ids.include?(a.id), id: dom_id(a)  %><span><%= label_tag dom_id(a), a.name %></span></p>
+                <% end %>
+              </td>
+              <td>
+                <% for i in 5..8 %>
+                  <% a = Action.find(i) %>
+                  <p> <%= check_box_tag "role[action_ids][]", a.id,  @role.action_ids.include?(a.id), id: dom_id(a)  %><span><%= label_tag dom_id(a), a.name %></span></p>
+                <% end %>
+              </td>
+              <td>
+                <% for i in 9..12 %>
+                  <% a = Action.find(i) %>
+                  <p> <%= check_box_tag "role[action_ids][]", a.id,  @role.action_ids.include?(a.id), id: dom_id(a)  %><span><%= label_tag dom_id(a), a.name %></span></p>
+                <% end %>
+              </td>
+              <td>
+                <% for i in 13..16 %>
+                  <% a = Action.find(i) %>
+                  <p> <%= check_box_tag "role[action_ids][]", a.id,  @role.action_ids.include?(a.id), id: dom_id(a)  %><span><%= label_tag dom_id(a), a.name %></span></p>
+                <% end %>
+              </td>
+            </tr>
+          </tbody>
+          <thead>
+            <tr>
+              <th>
+                  <label>Resolución</label>
+              </th>
+              <th>
+                  <label>Informe</label>
+              </th>
+              <th>
+                  <label>Auditoría</label>
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr></tr>
+              <td>
+                <% for i in 17..20 %>
+                  <% a = Action.find(i) %>
+                  <p> <%= check_box_tag "role[action_ids][]", a.id,  @role.action_ids.include?(a.id), id: dom_id(a), id: "prueba-check"  %><span><%= label_tag dom_id(a), a.name %></span></p>
+                <% end %>
+              </td>
+              <td>
+                <% for i in 21..24 %>
+                  <% a = Action.find(i) %>
+                  <p> <%= check_box_tag "role[action_ids][]", a.id,  @role.action_ids.include?(a.id), id: dom_id(a)  %><span><%= label_tag dom_id(a), a.name %></span></p>
+                <% end %>
+              </td>
+              <td>
+                <% for i in 25..28 %>
+                  <% a = Action.find(i) %>
+                  <p> <%= check_box_tag "role[action_ids][]", a.id,  @role.action_ids.include?(a.id), id: dom_id(a)  %><span><%= label_tag dom_id(a), a.name %></span></p>
+                <% end %>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <!-- fin de autorizaciones-->
+    <div class="col-xs-12 modal-footer" >
+      <%= f.button :submit, class: "btn btn-primary active",  "data-toggle" => "tooltip", "data-placement" => "bottom", "title" => "Guardar"  do %>
+        <spm class="glyphicon glyphicon-floppy-disk"></spm>
+      <% end %>
+      <%= link_to roles_path, class: "btn btn-danger", "data-toggle" => "tooltip", "data-placement" => "bottom", "title" => "Cancelar" do %>
+        <span class="glyphicon glyphicon-floppy-remove"></span>
+      <% end %>
+    </div>
+  </div>
+<% end %>

@@ -1,0 +1,4 @@
+class Dependency < ApplicationRecord
+	resourcify
+	has_many :records
+end

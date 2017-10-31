@@ -1,0 +1,35 @@
+# This file should contain all the record creation needed to seed the database with its default values.
+# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
+#
+# Examples:
+#
+#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
+#   Character.create(name: 'Luke', movie: movies.first)
+
+User.create(email: "fulano@gmail.com", password: "123456")
+User.create(email: "admin@gmail.com", password: "654321")
+Clasification.create(nombre: "Notas de grado")
+Dependency.create(nombre: "Mesa de entrada")
+Dependency.create(nombre: "Secretaria General")
+Dependency.create(nombre: "Decanato")
+Dependency.create(nombre: "Consejo Directivo")
+
+
+ResolutionsType.create(nombre: "Suspencion de clases", visto: "Es el lo que dice en la parte de visto", considerando: "La parte que dice en considerando", resuelve: "Lo que el CD o el decano resuelve")
+#Resolution.create(fecha: "04/10/2017", numero: "23/2017", visto:"Lo que dice en visto", considerando: "Considerando tal cosa", Resuelve: "Lo que resuelve el CD", resolutions_types_id: "1", record_id: "NULL", autoritie_id:"1")
+State.create(nombre: "Recibido")
+State.create(nombre: "En tramite")
+State.create(nombre: "Rechazado")
+State.create(nombre: "Finalizado")
+
+Tpersona.create(tipo: "Directivo")
+Tpersona.create(tipo: "Funcionario")
+Tpersona.create(tipo: "Solicitante")
+
+
+Person.create(nombre: "Juan Pérez" , ruc_ci: "154663", correo: "juan@gmail", direccion: "Gral. Artigas 658" , tpersona_id: "1")
+Person.create(nombre: "Pedro Lopez" , ruc_ci: "589663", correo: "pedro@gmail", direccion: "Kaaguy rory 367", tpersona_id: "2")
+Person.create(nombre: "Luz Acosta" , ruc_ci: "12548", correo: "luz@gmail", direccion: "Villa del maestro 588" , tpersona_id: "3")
+
+
+

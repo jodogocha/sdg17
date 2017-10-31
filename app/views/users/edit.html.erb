@@ -1,0 +1,30 @@
+<h3><%= @user == @current_user ? "Your Account Settings" : "Edit User" %></h3>
+ 
+<%= form_for(@user, :html => { :method => :put }) do |f| %>
+	<% if @user.errors.any? %>
+	  <div id="error_explanation">
+	    <h2><%= pluralize(@user.errors.count, "error") %> prohibited this @user from being saved:</h2>
+
+	    <ul>
+	    <% @user.errors.full_messages.each do |message| %>
+	      <li><%= message %></li>
+	    <% end %>
+	    </ul>
+	  </div>
+	<% end %>
+	
+ 	<p><%= f.label :email %></p>
+    <p><%= f.text_field :email %></p>
+
+	<p><%= f.label :password %> <i>(Deje en blanco si no desea cambiarla)</i></p>
+	<p><%= f.password_field :password %></p>
+ 
+	<p><%= f.label :password_confirmation %></p>
+	<p><%= f.password_field :password_confirmation %></p>
+ 
+	<p><%= f.label :current_password %> <i>(Necesitamos su contraseña actual para confirmar sus cambios)</i></p>
+	<p><%= f.password_field :current_password %></p>
+ 
+  <p><%= f.submit "Update" %></p>
+<% end %>
+<%= link_to "Back", :back %>

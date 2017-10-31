@@ -1,0 +1,39 @@
+
+<div class="box">
+  <div class="box-header with-border">
+	<h1><center>Registrar Usuario y Asignar Rol</center></h1> 
+  </div>
+	 
+	<%= form_for(@user) do |f| %>
+	  
+	    <div class="box-body">  
+	       <div class="row">
+	           <%= render :partial => 'user_fields', :locals => { :f => f } %>
+	 	  
+			 	<div class="col-xs-12 form-group">
+					<label for="password">Contraseña</label>
+					<%= f.password_field :password,  class: "form-control", placeholder: "Contraseña" %>
+			 	 </div>
+
+			    <div class="col-xs-12 form-group">
+					<label for="password_confirmation">Confirmar Contraseña</label>
+					<%= f.password_field :password_confirmation,  class: "form-control", placeholder: "Confirmar Contraseña" %>
+			    </div>
+
+			    <div class="col-xs-12 form-group" >
+			    	<label for="role_id">Rol</label>
+			  	 <%= f.select :role_id ,Role.all.collect { |r| [r.name, r.id ] }, {prompt: 'Seleccione un Rol'}, class: "js-example-placeholder-single selectpicker form-control", 'data-width' => "100%" %> 
+			    </div>
+
+			    <div class="col-xs-12 modal-footer" >
+		  	        <%= f.button :submit, class: "btn btn-primary", title: 'Registrar', 'data-toggle' => 'tooltip', 'data-placement' => 'rigth'  do %>
+	            		<spm class="glyphicon glyphicon-floppy-disk"></spm>
+		        	<% end %>
+		        	<%= link_to users_path, class: "btn btn-danger", "data-toggle" => "tooltip", "data-placement" => "bottom", "title" => "Cancelar" do %>
+			          <span class="glyphicon glyphicon-floppy-remove"></span>
+			        <% end %>
+		  	  </div>
+	       </div> <!-- row end -->
+	  </div> <!-- box-body end -->
+	<% end %>
+</div> <!-- box and box-primary end-->

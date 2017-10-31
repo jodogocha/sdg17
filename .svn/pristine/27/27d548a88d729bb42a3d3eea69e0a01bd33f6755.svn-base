@@ -1,0 +1,93 @@
+<%= form_for(record) do |f| %>
+  <% if record.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(record.errors.count, "error") %> prohibited this record from being saved:</h2>
+
+      <ul>
+      <% record.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+ <div class="box-body">
+    <div class="col-sm-6 form-group  has-feedback">
+      <%= f.label "Fecha: ", class: "col-sm-3 control-label" %>
+     <div class="col-sm-4">
+     <%= f.text_field :fecha, value: Time.now.strftime('%d-%m-%Y'), class: "form-control", id: "datepicker" %>
+    </div>
+    <div class="col-sm-1"></div>
+    <%= f.label "Nro: ",class: "col-sm-1 control-label" %>
+      <div class="col-sm-3">
+        <%= f.text_field :num_expediente, class: "form-control" %>
+      </div>
+  </div>
+  
+  <div class="col-sm-6 form-group   has-feedback">
+      <%= f.label "Responsable: ", class: "col-sm-3 control-label" %>
+      <div class="col-sm-9">
+       <%= f.select :person_id ,Person.all.collect { |p| [p.nombre, p.id ] },{include_blank: false},class: "form-control"%>
+      </div>
+    </div>
+    <div class="col-sm-6 form-group   has-feedback">
+      <%= f.label "Dependencia Actual: ", class: "col-sm-3 control-label" %>
+      <div class="col-sm-9">
+        <%= f.select :dependency_id ,Dependency.all.collect { |p| [p.nombre, p.id ] },{include_blank: false},class: "form-control"%>
+      </div>
+    </div>
+    <div class="col-sm-6 form-group   has-feedback">
+      <%= f.label "Dependencia Destino: ", class: "col-sm-3 control-label" %>
+      <div class="col-sm-9">
+        <%= f.select :dependency_id ,Dependency.all.collect { |p| [p.nombre, p.id ] },{include_blank: false},class: "form-control" %>
+      </div>
+    </div>
+    <div class="col-sm-6 form-group   has-feedback">
+      <%= f.label "Clasificación: ", class: "col-sm-3 control-label" %>
+      <div class="col-sm-9">
+        <%= f.select :clasification_id ,Clasification.all.collect { |p| [p.nombre, p.id ] },{include_blank: false},class: "form-control"%>
+      </div>
+    </div>
+    <div class="col-sm-6 form-group   has-feedback">
+      <%= f.label "Solicitante: ", class: "col-sm-3 control-label" %>
+      <div class="col-sm-6">
+        <%= f.select :person_id ,Person.all.collect { |p| [p.nombre, p.id ] },{include_blank: false},class: "form-control"%>
+      
+      </div>
+        <%= link_to new_person_path, remote: true, class: "col-sm-1", title: 'Nuevo Solicitante', style:"color: #3c8dbc", 'data-toggle' => 'tooltip', 'data-placement' => 'right' do %> <span class= "glyphicon glyphicon glyphicon-plus"></span>
+         
+        <% end %>
+    </div>
+
+    <div class="col-sm-6 form-group   has-feedback">
+      <%= f.label "Descripcion: ", class: "col-sm-3 control-label" %>
+      <div class="col-sm-9">
+       <%= f.text_area :descripcion, class: "form-control" %>
+      </div>
+    </div>
+
+  <div class="col-sm-6 form-group   has-feedback">
+      <%= f.label "Observacion: ", class: "col-sm-3 control-label" %>
+      <div class="col-sm-9">
+       <%= f.text_area :observacion, class: "form-control" %>
+      </div>
+    </div>
+    <div class="col-xs-12 modal-footer" >
+          <%= f.button :submit, class: "btn btn-primary", title: 'Guardar', 'data-toggle' => 'tooltip', 'data-placement' => 'rigth'  do %>
+            <spm class="glyphicon glyphicon-floppy-disk"></spm>
+          <% end %>
+
+
+          <%= f.button :submit, class: "btn btn-success", title: 'Guardar y Enviar', 'data-toggle' => 'tooltip', 'data-placement' => 'rigth'  do %>
+          <spm class="glyphicon glyphicon-share"></spm> 
+           <% end %>
+
+
+
+          <%= link_to records_path, class: "btn btn-danger", style:"color:white", title: 'Cancelar', 'data-toggle' => 'tooltip', 'data-placement' => 'rigth' do %>
+            <span class="glyphicon glyphicon-remove-circle"></span>
+          <% end %>
+        </div>
+</div>
+
+<% end %>

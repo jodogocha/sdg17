@@ -1,0 +1,3 @@
+class Dependency < ApplicationRecord
+	has_many :records
+end

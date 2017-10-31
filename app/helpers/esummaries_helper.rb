@@ -1,0 +1,2 @@
+module EsummariesHelper
+end

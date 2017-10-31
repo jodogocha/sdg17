@@ -1,0 +1,38 @@
+<div class="box">
+	<div class="box-header with-border">
+	  <h1><center>Ver</center></h1> 
+	</div>
+	<div class="box-body">
+			<table class="table table-striped">
+				<tbody>
+					<tr>
+						<td >Email:</td>
+						<td><%= @user.email %></td>
+					</tr>
+					<tr>
+						<td >Rol:</td>
+						<td><%= @user.role.name if @user.role_id%>
+						</td>
+					</tr>
+				<% if can?(:see_timestamps,User) %>
+					<tr>
+						<td >Created at:</td>
+						<td><%= @user.created_at %></td>
+					</tr>
+					<tr>
+						<td >Last Sign In:</td>
+						<td><%= @user.last_sign_in_at %></td>
+					</tr>
+					<tr>
+						<td >Sign In Count:</td>
+						<td><%= @user.sign_in_count %></td>
+					</tr>
+				<% end %>
+				</tbody>
+			</table>
+		<div class="col-xs-12 modal-footer" >
+			<%= link_to_if(can?(:update,@user), "Edit", edit_user_path(@user), class: "btn btn-warning") %> 
+			<%= link_to "Back", users_path, class: "btn btn-info" %>
+		</div>
+	</div>
+</div> 

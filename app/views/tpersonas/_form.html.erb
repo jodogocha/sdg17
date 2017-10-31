@@ -1,0 +1,36 @@
+<%= form_for(tpersona) do |f| %>
+  <% if tpersona.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(tpersona.errors.count, "error") %> No se puede guardar esta persona:</h2>
+
+      <ul>
+      <% tpersona.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="box-body">
+    <div class="login-box">
+      <div class="login-box-body" align="center">
+        <table class="table-condensed">
+          <tr>
+            <div class="field">
+              <h4>Tipo</h4>
+              <%= f.text_field :tipo %>
+            </div>
+          </tr>
+        </table>
+      </div>
+    </div>
+    <div class="col-xs-12 modal-footer" >
+      <%= f.button :submit, class: "btn btn-primary", title: 'Guardar', 'data-toggle' => 'tooltip', 'data-placement' => 'rigth'  do %>
+          <spm class="glyphicon glyphicon-floppy-disk"></spm>
+      <% end %>
+
+      <%= link_to tpersonas_path, class: "btn btn-danger", style:"color:white", title: 'Cancelar', 'data-toggle' => 'tooltip', 'data-placement' => 'rigth' do %>
+          <span class="glyphicon glyphicon-floppy-remove"></span>
+      <% end %>
+    </div>
+  </div>
+<% end %>

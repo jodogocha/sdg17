@@ -1,0 +1,4 @@
+class Resolution < ApplicationRecord
+	belongs_to :autoritie
+	belongs_to :resolutions_type
+end

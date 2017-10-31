@@ -1,0 +1,61 @@
+<%= form_for(person) do |f| %>
+  <% if person.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(person.errors.count, "error") %> No se puede guardar esta persona:</h2>
+
+      <ul>
+      <% person.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+<div class="box-body">
+  <div class="login-box">
+    <div class="login-box-body" align="center">
+        <table class="table-condensed">
+          <tr>
+            <div class="field">
+              <h4>Nombre y Apellido</h4>
+              <%= f.text_field :nombre %>
+            </div>
+          </tr>
+          <tr>
+            <div class="field">
+              <h4>RUC o CI</h4>
+              <%= f.text_field :ruc_ci %>
+            </div>
+          </tr>
+          <tr>
+            <div class="field">
+              <h4>E-mail</h4>
+              <%= f.text_field :correo %>
+            </div>
+          </tr>
+          <tr>
+            <div class="field">
+              <h4>Contacto</h4>
+              <%= f.text_field :direccion %>
+            </div>
+          </tr>
+          <tr>
+            <div class="field">
+              <h4>Tipo</h4>
+              <%= f.collection_select :tpersona_id, Tpersona.all, :id, :tipo %>
+            </div>
+          </tr>
+        </table>
+      </div>
+    </div>
+  <div class="col-xs-12 modal-footer" >
+    <%= f.button :submit, class: "btn btn-primary", title: 'Guardar', 'data-toggle' => 'tooltip', 'data-placement' => 'rigth'  do %>
+        <spm class="glyphicon glyphicon-floppy-disk"></spm>
+    <% end %>
+
+    <%= link_to people_path, class: "btn btn-danger", style:"color:white", title: 'Cancelar', 'data-toggle' => 'tooltip', 'data-placement' => 'rigth' do %>
+        <span class="glyphicon glyphicon-remove-circle"></span>
+    <% end %>
+  </div>
+</div>
+<% end %>

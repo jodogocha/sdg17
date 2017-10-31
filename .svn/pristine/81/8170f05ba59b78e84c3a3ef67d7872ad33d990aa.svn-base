@@ -1,0 +1,41 @@
+<div class="box box">
+            <div class="box-header with-border">
+           	 <div class="box-tools pull-right">
+               <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+               </button>
+             </div>
+             <h1><center>CRM</center></h1> 
+            </div>
+            <!-- /.box-header -->
+            <div class="box-body">
+            	<h3>Buscar por:</h3>	
+				<input type="radio" value="cedula">Por nro de cedula
+				<br>
+				<input type="radio" value="expediente">Por nro de expediente
+				
+				<input type="text" id="order" size="50">
+				<br><br>
+					<a href="javascript:void(0)" class="btn btn-sm btn-danger pull-right"> <span class="glyphicon glyphicon-remove-circle"></span></a>
+              		<a href="javascript:void(0)" class="btn btn-sm btn-primary pull-right"><span class="glyphicon glyphicon-search"></span></a>
+            </div>
+            </div>
+            <!-- /.box-body -->
+            
+              
+            
+          </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

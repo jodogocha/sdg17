@@ -1,0 +1,9 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Nombre:</strong>
+  <%= @autority.nombre %>
+</p>
+
+<%= link_to 'Edit', edit_autority_path(@autority) %> |
+<%= link_to 'Back', autorities_path %>

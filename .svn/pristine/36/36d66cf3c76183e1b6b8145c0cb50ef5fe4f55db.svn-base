@@ -1,0 +1,50 @@
+<%= form_for(resolutions_type) do |f| %>
+  <% if resolutions_type.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(resolutions_type.errors.count, "error") %> prohibited this resolutions_type from being saved:</h2>
+
+      <ul>
+      <% resolutions_type.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="box">
+    <div class="box-body">  
+      <div class="row">
+             
+        <div class="col-xs-12">
+          <label for="nombre">Nombre</label>
+          <%= f.text_field :nombre, class: "form-control", placeholder: "Campo Obligatorio", autofocus: true %>
+        </div>
+
+        <div class="col-xs-12">
+          <label for="visto">visto</label>
+          <%= f.cktext_area :visto, class: "ckeditor" %>
+        </div>
+
+        <div class="col-xs-12">
+          <label for="considerando">Considerando</label>
+          <%= f.cktext_area :considerando, class: "ckeditor" %>
+        </div>
+
+        <div class="col-xs-12">
+          <label for="resuelve">Resuelve</label>
+          <%= f.cktext_area :resuelve, class: "ckeditor" %>
+        </div>
+
+        <div class="col-xs-12 modal-footer" >
+          <%= f.button :submit, class: "btn btn-primary", "data-toggle" => "tooltip", "data-placement" => "top", "title" => "Guardar" do %>
+            <spm class="glyphicon glyphicon-floppy-disk"></spm>
+          <% end %>
+          
+          <%= link_to resolutions_types_path, class: "btn btn-danger", "data-toggle" => "tooltip", "data-placement" => "top", "title" => "Cancelar" do %>
+            <span class="glyphicon glyphicon-floppy-remove"></span>
+          <% end %>
+        </div>
+        </div><!--row end -->
+    </div> <!--box end -->
+  </div> <!-- fin del formulario datos de resoluciones -->
+
+<% end %>

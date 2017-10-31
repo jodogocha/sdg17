@@ -1,0 +1,76 @@
+<%= form_for(record) do |f| %>
+  <% if record.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(record.errors.count, "error") %> prohibited this record from being saved:</h2>
+
+      <ul>
+      <% record.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+ <div class="box-body">
+    <div class="col-sm-6 form-group  has-feedback">
+      <%= f.label "Fecha: ", class: "col-sm-3 control-label" %>
+     <div class="col-sm-3">
+     <%= Time.now.strftime("%d-%m-%Y")%>
+    </div>
+    <div class="col-sm-1"></div>
+    <%= f.label "Número: ",class: "col-sm-2 control-label" %>
+      <div class="col-sm-3">
+        <%= f.text_field :num_expediente, class: "form-control" %>
+      </div>
+  </div>
+  
+  <div class="col-sm-6 form-group   has-feedback">
+      <%= f.label "Responsable: ", class: "col-sm-3 control-label" %>
+      <div class="col-sm-9">
+       <%= f.select :person_id ,Person.all.collect { |p| [p.nombre, p.id ] },{include_blank: false},class: "form-control"%>
+      </div>
+    </div>
+    <div class="col-sm-6 form-group   has-feedback">
+      <%= f.label "Dependencia Actual: ", class: "col-sm-3 control-label" %>
+      <div class="col-sm-9">
+        <%= f.select :dependency_id ,Dependency.all.collect { |p| [p.nombre, p.id ] },{include_blank: false},class: "form-control"%>
+      </div>
+    </div>
+    <div class="col-sm-6 form-group   has-feedback">
+      <%= f.label "Dependencia Destino: ", class: "col-sm-3 control-label" %>
+      <div class="col-sm-9">
+        <%= f.select :dependency_id ,Dependency.all.collect { |p| [p.nombre, p.id ] },{include_blank: false},class: "form-control" %>
+      </div>
+    </div>
+    <div class="col-sm-6 form-group   has-feedback">
+      <%= f.label "Clasificación: ", class: "col-sm-3 control-label" %>
+      <div class="col-sm-9">
+        <%= f.select :clasification_id ,Clasification.all.collect { |p| [p.nombre, p.id ] },{include_blank: false},class: "form-control"%>
+      </div>
+    </div>
+    <div class="col-sm-6 form-group   has-feedback">
+      <%= f.label "Solicitante: ", class: "col-sm-3 control-label" %>
+      <div class="col-sm-9">
+        <%= f.select :person_id ,Person.all.collect { |p| [p.nombre, p.id ] },{include_blank: false},class: "form-control"%>
+      </div>
+    </div>
+
+    <div class="col-sm-6 form-group   has-feedback">
+      <%= f.label "Observacion: ", class: "col-sm-3 control-label" %>
+      <div class="col-sm-9">
+       <%= f.text_area :observacion, class: "form-control" %>
+      </div>
+    </div>
+
+  <div class="col-sm-6 form-group   has-feedback">
+      <%= f.label "Descripcion: ", class: "col-sm-3 control-label" %>
+      <div class="col-sm-9">
+       <%= f.text_area :descripcion, class: "form-control" %>
+      </div>
+    </div>
+</div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

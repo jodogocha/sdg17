@@ -1,0 +1,9 @@
+class Record < ApplicationRecord
+	belongs_to :clasification
+	belongs_to :dependencie
+	belongs_to :state
+	belongs_to :person
+	has_one :history
+	validates :nombre, :fecha, :num_expediente, :descripcion, :clasification_id, :dependency_id, :person_id, :presence => { message: "No puede dejarse vacío" }
+end
+

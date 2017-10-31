@@ -1,0 +1,4 @@
+class Clasification < ApplicationRecord
+	resourcify
+	has_one :record
+end

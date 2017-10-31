@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Fecha:</strong>
+  <%= @resolution.fecha %>
+</p>
+
+<p>
+  <strong>Numero:</strong>
+  <%= @resolution.numero %>
+</p>
+
+<p>
+  <strong>Visto:</strong>
+  <%= @resolution.visto %>
+</p>
+
+<p>
+  <strong>Considerado:</strong>
+  <%= @resolution.considerando %>
+</p>
+
+<p>
+  <strong>Resuelve:</strong>
+  <%= @resolution.resuelve %>
+</p>
+
+<%= link_to 'Edit', edit_resolution_path(@resolution) %> |
+<%= link_to 'Back', resolutions_path %>

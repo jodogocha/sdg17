@@ -1,0 +1,13 @@
+class Record < ApplicationRecord
+	resourcify
+	belongs_to :clasification
+	accepts_nested_attributes_for :clasification
+	belongs_to :dependency
+	accepts_nested_attributes_for :dependency
+	has_one :state
+	belongs_to :person
+	accepts_nested_attributes_for :person
+	has_one :history
+	validates :num_expediente, :descripcion, :clasification_id, :dependency_id, :person_id, :presence => { message: "No puede dejarse vacío" }
+end
+

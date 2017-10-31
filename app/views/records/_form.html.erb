@@ -1,0 +1,138 @@
+<%= form_for(record) do |f| %>
+  <% if record.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(record.errors.count, "error") %> prohibited this record from being saved:</h2>
+
+      <ul>
+      <% record.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+
+ <div class="box-body">
+    <div class="col-sm-6 form-group  has-feedback">
+      <%= f.label "Fecha: ", class: "col-sm-3 control-label" %>
+     <div class="col-sm-4">
+     <%= f.text_field :fecha, value: Time.now.strftime("%d-%m-%Y"), class: "form-control", :readonly => true %>
+    </div>
+    <div class="col-sm-1"></div>
+    <%= f.label "Nro: ",class: "col-sm-1 control-label" %>
+      <div class="col-sm-3">
+        <%= f.text_field :num_expediente, class: "form-control" %>
+      </div>
+    </div>
+  
+  <div class="col-sm-6 form-group   has-feedback">
+      <%= f.label "Responsable: ", class: "col-sm-3 control-label" %>
+      <div class="col-sm-9">
+       <%= f.text_field :responsable, :value => current_user.person.nombre, class: "form-control", :readonly => true%>
+      </div>
+    </div>
+    <div class="col-sm-6 form-group   has-feedback">
+      <%= f.label "Dependencia Actual: ", class: "col-sm-3 control-label" %>
+      <div class="col-sm-9">
+        <%= f.text_field :origen_id, :value => 1, class: "form-control", :readonly => true %>
+      </div>
+    </div>
+    <div class="col-sm-6 form-group   has-feedback">
+      <%= f.label "Dependencia Destino: ", class: "col-sm-3 control-label" %>
+      <div class="col-sm-9">
+        <%= f.select :destino_id ,Dependency.all.collect { |p| [p.nombre, p.id ] },{include_blank: false},class: "form-control" %>
+      </div>
+    </div>
+    <div class="col-sm-6 form-group   has-feedback">
+      <%= f.label "Clasificación: ", class: "col-sm-3 control-label" %>
+      <div class="col-sm-9">
+        <%= f.select :clasification_id ,Clasification.all.collect { |p| [p.nombre, p.id ] },{include_blank: false},class: "form-control"%>
+      </div>
+    </div>
+    <div class="col-sm-6 form-group   has-feedback">
+      <%= f.label "Solicitante: ", class: "col-sm-3 control-label" %>
+      <div class="col-sm-6">
+        <%= f.select :person_id ,Person.where(tpersona_id: "3").all.collect { |c| [c.nombre, c.id ] },{include_blank: false}, class: "form-control"%>
+      
+      </div>
+      <button type="button" class="btn btn-info" style="color:white" title="Nuevo Solicitante" data-toggle="collapse" data-target="#solicitante">
+        <spm class="glyphicon small glyphicon-plus-sign"></spm>
+      </button>
+    </div>
+
+    <div class="col-sm-6 form-group   has-feedback">
+      <%= f.label "Descripcion: ", class: "col-sm-3 control-label" %>
+      <div class="col-sm-9">
+       <%= f.text_area :descripcion, class: "form-control" %>
+      </div>
+    </div>
+
+  <div class="col-sm-6 form-group   has-feedback">
+      <%= f.label "Observacion: ", class: "col-sm-3 control-label" %>
+      <div class="col-sm-9">
+       <%= f.text_area :observacion, class: "form-control" %>
+      </div>
+    </div>
+    <div class="col-xs-12 modal-footer" >
+          <%= f.button :submit, class: "btn btn-primary", title: 'Guardar', 'data-toggle' => 'tooltip', 'data-placement' => 'rigth'  do %>
+            <spm class="glyphicon glyphicon-floppy-disk"></spm>
+          <% end %>
+
+
+          <%= f.button :submit, class: "btn btn-success", title: 'Guardar y Enviar', 'data-toggle' => 'tooltip', 'data-placement' => 'rigth'  do %>
+          <spm class="glyphicon glyphicon-share"></spm> 
+           <% end %>
+
+          <%= link_to esummaries_path, class: "btn btn-danger", style:"color:white", title: 'Cancelar', 'data-toggle' => 'tooltip', 'data-placement' => 'rigth' do %>
+            <span class="glyphicon glyphicon-floppy-remove"></span>
+          <% end %>
+     </div>
+ </div>
+
+    <div class="panel-group" id="acordeon">
+      <div class="panel panel-info">
+        <div class="panel-heading">
+          <h4 class="panel-title">
+            <a href="solicitante" data-toggle="collapse" data-parent="acordeon">Nuevo Solicitante</a>
+          </h4>
+        </div>
+
+        <div id="solicitante" class="panel-collapse collapse">
+          <td class="panel-body">
+            <table class="table table-bordered table-hover table-responsive">
+              <thead class="thead-inverse">
+              <tr>
+                <th>Nombre y Apellido</th>
+                <th>RUC o CI</th>
+                <th>E-mail</th>
+                <th>Contacto</th>
+                <th>Tipo</th>
+                <th colspan="3"></th>
+              </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><input class="form-control form-control-sm" type="text" placeholder="Nombre y Apellido"></td>
+                  <td><input class="form-control form-control-sm" type="text" placeholder="RUC o CI"></td>
+                  <td><input class="form-control form-control-sm" type="text" placeholder="E-mail"></td>
+                  <td><input class="form-control form-control-sm" type="text" placeholder="Contacto"></td>
+                  <td><input class="form-control form-control-sm" type="text" placeholder="Solicitante" readonly></td>
+                </tr>
+              </tbody>
+              <tfoot>
+              <tr>
+                <div class="col-xs-12 modal-footer" >
+                  <button type="button" class="btn btn-primary" style="color:white" title="Guardar" data-toggle="collapse" data-target="#solicitante" id="guardarsol">
+                    <span class="glyphicon glyphicon-floppy-disk"></span>
+                  </button>
+                </div>
+              </tr>
+              </tfoot>
+            </table>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+<% end %>

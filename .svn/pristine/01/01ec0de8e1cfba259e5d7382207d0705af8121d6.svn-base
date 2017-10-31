@@ -1,0 +1,7 @@
+
+   <div class="box-header with-border">
+        <h1><center>Nuevo Expediente</center></h1> 
+   </div>
+   <%= render 'form', record: @record %>
+
+

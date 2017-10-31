@@ -1,0 +1,21 @@
+
+<div class="row">
+    <div class="col-xs-12">
+       <div class="col-xs-12 form-group">
+        <label for="ci">Cedula de Identidad:</label>
+        <%= f.autocomplete_field :person_id, autocomplete_person_ruc_ci_people_path, placeholder: "Ingrese ruc o ci", :multiple => false, update_elements: {:id=> "#id-persona", :nombre => '#nombre', :correo => '#correo'} , class: "form-control" %>
+        <%=f.hidden_field :person_id, id: 'id-persona' %>
+      </div>
+      
+      <div class="col-xs-6 form-group">
+        <label for="name">Nombre:</label>
+          <%= f.text_field :nombre_virtual, id: 'nombre', class: "form-control", readonly: true%>
+      </div>
+      <div class="col-xs-6 form-group">
+        <label for="email">Email:</label>
+        <%= f.text_field :email, id: 'correo', class: "form-control", readonly: true %>
+      </div>
+    </div>
+</div>
+
+ 

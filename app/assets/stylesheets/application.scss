@@ -1,0 +1,101 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require jquery-ui
+ *= require bootstrap-datepicker
+ *= require dataTables/jquery.dataTables
+ *= require_self
+ */
+@import 'select2';
+@import "bootstrap-sprockets";
+@import "bootstrap";
+@import "AdminLTE/AdminLTE";
+@import "AdminLTE/skins/skin-purple-light";
+
+body{
+	&.login-page{
+		background-image: url("https://raw.githubusercontent.com/Rioberti/Secretaria-Gral/master/image/fiuni.ico");
+    }
+}
+
+.box {
+ 	box-shadow: 0 0 20px 5px rgba(0, 0, 0, .15);
+} 
+
+.login-box, .register-box {
+	background-color: red;
+	border-radius: 10px;
+}
+
+.img-circle {
+    background-color: white;
+}
+
+.login-logo h1{
+	color: white;
+}
+
+
+.box-header.with-border {
+    background-color: #605ca8;
+
+}
+
+.login-box-body{
+	border-radius: 10px;
+	box-shadow: 0 0 20px 5px rgba(0, 0, 0, .15);
+}
+
+.checkbox {
+	padding-left: 20px;
+}
+
+.content h1 {
+	color: white;
+	font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+	font-size: 24px;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: 500;
+	line-height: 26.4px;
+}
+
+.content-wrapper, .right-side {
+    background-color: white;
+}
+
+.glyphicon {
+	color: white !important;
+}
+.content {
+	padding-top: 0px;
+}
+
+.content .box {
+	background: #fcfcfc;
+}
+
+.box-header.with-border {
+    border-bottom: 1px solid #f4f4f4;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    background-color: #7a77b1;
+}
+
+.content .box .box-primary {
+    border-top-color: #064163;
+}
+
+a:hover {
+    background-color: #605ca8 !important;
+}

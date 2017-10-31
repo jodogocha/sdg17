@@ -1,0 +1,69 @@
+<p id="notice"><%= notice %></p>
+
+<div class="box-header with-border">
+  <h1><center>Resumen de Mesa de Entrada</center></h1>
+</div>
+
+<div class="box-body">
+
+  <table class="table table-bordered table-hover table-responsive">
+    <thead class="thead-inverse">
+    <tr>
+      <th>Clasificación</th>
+      <th>Recibidos</th>
+      <th>En Trámite</th>
+      <th colspan="1">Recibir Nuevo</th>
+    </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Solicitud de Nota</td>
+        <td>2</td>
+        <td>0</td>
+        <td>
+          <%= link_to new_record_path, class: "btn btn-info", style:"color:white", title: 'Recibir', 'data-toggle' => 'tooltip' do %>
+            <spm class="glyphicon small glyphicon-plus-sign"></spm>
+          <% end %>
+        </td>
+      </tr>
+      <tr>
+        <td>Solicitud de beca</td>
+        <td>2</td>
+        <td>8</td>
+        <td>
+          <%= link_to new_record_path, class: "btn btn-info", style:"color:white", title: 'Recibir', 'data-toggle' => 'tooltip' do %>
+            <spm class="glyphicon small glyphicon-plus-sign"></spm>
+          <% end %>
+        </td>
+      </tr>
+      <tr>
+        <td>Circular de Rectorado</td>
+        <td>0</td>
+        <td>1</td>
+        <td>
+          <%= link_to new_record_path, class: "btn btn-info", style:"color:white", title: 'Recibir', 'data-toggle' => 'tooltip' do %>
+            <spm class="glyphicon small glyphicon-plus-sign"></spm>
+          <% end %>
+        </td>
+      </tr>
+      <tr>
+        <td>Pedidos</td>
+        <td>0</td>
+        <td>6</td>
+        <td>
+          <%= link_to new_record_path, class: "btn btn-info", style:"color:white", title: 'Recibir', 'data-toggle' => 'tooltip' do %>
+            <spm class="glyphicon small glyphicon-plus-sign"></spm>
+          <% end %>
+        </td>
+      </tr>
+    <% @esummaries.each do |esummary| %>
+      <tr>
+        <td><%= esumary.record.clasification.nombre %></td>
+        <td><%= link_to 'Show', esummary %></td>
+        <td><%= link_to 'Edit', edit_esummary_path(esummary) %></td>
+        <td><%= link_to 'Destroy', esummary, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+</div>

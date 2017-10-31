@@ -1,0 +1,33 @@
+<div class="modal fade" id="show-modal">
+  <div class="modal-dialog">
+    <!-- Modal content-->
+    <div class="modal-content">
+
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Resolucion Nro. <%=@resolution.numero%>/<%= @resolution.fecha.year%></h4>
+      </div>
+      
+      <div style="word-wrap: break-word;" class="modal-body">   
+        <p id="notice"><%= notice %></p>
+        <p>
+          <strong>Fecha:</strong>
+          <%= @resolution.fecha %>
+        </p>
+
+        <p>
+          <strong>Visto:</strong>
+          <%= @resolution.visto %>
+        </p>
+        <p>
+          <strong>Considerando:</strong>
+          <%= @resolution.considerando %>
+        </p>
+        <p>
+          <strong>Resuelve:</strong>
+          <%= @resolution.resuelve %>
+        </p>
+    </div>
+   </div>
+ </div>
+</div>

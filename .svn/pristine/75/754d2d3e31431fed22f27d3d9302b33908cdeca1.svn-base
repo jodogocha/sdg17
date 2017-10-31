@@ -1,0 +1,74 @@
+<div class="box-header with-border">
+  <h1><center>Expedientes</center></h1> 
+</div>
+<div class="box">
+  <div class="box-body">
+    <div class="container-fluid"> 
+    <div class="row">
+      <div class="col-md-10">
+        <div class="container-fluid"> 
+        <div class="row">
+          <div class="col-md-2">
+            <p>Filtrar por:</p>
+          </div> 
+        <div class="input-group">
+          <div class="col-md-4">
+            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">Nro. Expediente
+              <span class="fa fa-caret-down"></span>
+            </button>
+            <ul class="dropdown-menu">
+              <li><a href="#">Dep. Actual</a></li>
+              <li><a href="#">Dep. Destino</a></li>
+              <li><a href="#">Solicitante</a></li>
+            </ul>   
+          </div>
+          <div class="col-md-6">
+            <input type="textfiled" class="form-control">
+          </div>
+        </div>
+        </div>
+      </div>
+      </div>
+  </div>
+  </div>
+  <br>
+    <table id= "record_table" class="table table-bordered table-striped">
+  <thead>
+    <tr>
+      <th>Número de Expediente</th>
+      <th>Solicitante</th>
+      <th>Dep. Actual</th>
+      <th>Dep. Destino</th>
+      <th colspan="3">Opciones</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @records.each do |record| %>
+      <tr>
+        <td><%= record.num_expediente %></td>
+        <td><%= record.person.nombre %></td>
+        <td><%= record.dependency.nombre %></td>
+        <td><%= record.dependency.nombre%></td>
+        <td>
+
+    <%= link_to record, class: "btn btn-info", style:"color:white", title: 'Mostrar', 'data-toggle' => 'tooltip' do %>
+              <spm class="glyphicon glyphicon-folder-open small"></spm>
+          <% end %>
+          <%= link_to edit_record_path(record), class: "btn btn-warning", style:"color:white", title: 'Editar', 'data-toggle' => 'tooltip' do %>
+              <spm class="glyphicon glyphicon-pencil small"></spm>
+          <% end %>
+          <%= link_to record, method: :delete, data: { confirm: '¿Estás seguro?' }, class: "btn btn-danger", style:"color:white", title: 'Borrar', 'data-toggle' => 'tooltip' do %>
+              <spm class="glyphicon glyphicon-trash small"></spm>
+          <% end %>
+      
+    </td>
+
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+  </div>
+</div>
+<br>
+        

@@ -1,0 +1,7 @@
+<div class="box box-primary">
+   <div class="box-header with-border">
+        <h3><center>Nuevo Expediente</center></h3>
+   </div>
+   <%= render 'form', record: @record %>
+</div>
+<%= link_to 'Atras', records_path %>

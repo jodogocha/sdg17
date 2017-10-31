@@ -1,0 +1,11 @@
+<div class="box box">
+  <div class="box-header with-border">
+        <h1><center>Auditoria</center></h1> 
+   </div>
+  <%= render(
+  partial: 'audit/list',
+  locals: { audited_tables: @audited_tables }
+  ) %>
+  
+</div>
+

@@ -1,0 +1,43 @@
+<div class="box"> 
+  <div class="box-header with-border">
+    <h1><center>Usuarios</center></h1> 
+  </div>
+    <div class="box-body">
+      <div class="row">
+        <div class="col-md-12" style="text-align:right" >
+          <%= link_to 'Nuevo Usuario', new_user_path,  { id: "new_link",  :class=>"btn btn-primary", style:"color:white"}%>
+        </div>
+      </div>
+      <br>
+      <div>
+      <table id="roles_table" class="table table-bordered table-striped">
+        <thead>
+          <tr>
+            <th>Nombre</th>
+            <th>Email</th>
+            <th>Rol</th>
+            <th>Acciones</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <!-- table header stuff here -->
+          <% @users.each do |u| %>
+            <tr id="row_<%= u.id %>">
+              <!--<td><%#= link_to_if(can?(:read, User), "#{u.email}", user_path(u.id)) {} %></td>-->
+              <td><%= u.person.nombre if u.person_id %> </td>
+              <td><%= u.email %></td>
+              <td><%= u.role.name if u.role_id %></td>
+              <td>
+                <%= link_to '', u, {class: "btn btn-info glyphicon glyphicon-folder-open small", title: 'Ver', 'data-toggle' => 'tooltip', 'data-placement' => 'rigth' }%>
+                <%= link_to '', edit_user_path(u), class: 'btn btn-warning glyphicon glyphicon-pencil', title: 'Editar', 'data-toggle' => 'tooltip', 'data-placement' => 'rigth'%>
+                <% if can? :destroy, u %>
+                  <%= link_to '', u,{method: :delete, data: { confirm: '¿Está seguro de eliminar?' }, class: 'btn btn-danger glyphicon glyphicon-trash', remote: :true, title: 'Eliminar', 'data-toggle' => 'tooltip', 'data-placement' => 'rigth'} %>
+                <% end %>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div> 
+</div>

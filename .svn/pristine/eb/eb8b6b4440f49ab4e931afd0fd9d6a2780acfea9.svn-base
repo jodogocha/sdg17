@@ -1,0 +1,37 @@
+<%= form_for(person) do |f| %>
+  <% if person.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(person.errors.count, "error") %> No se puede guardar esta persona:</h2>
+
+      <ul>
+      <% person.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <table class="table table-responsive">
+    <thead>
+      <tr>
+        <th>Nombre y Apellido</th>
+        <th>RUC o CI</th>
+        <th>E-mail</th>
+        <th>Contacto</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><%= f.text_field :nombre %></td>
+        <td><%= f.text_field :ruc_ci %></td>
+        <td><%= f.text_field :correo %></td>
+        <td><%= f.text_field :direccion %></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="actions">
+    <button class="btn btn-success" type="submit">Aceptar</button>
+    <a class="btn btn-danger" href="/people" role="button">Cancelar</a>
+  </div>
+<% end %>

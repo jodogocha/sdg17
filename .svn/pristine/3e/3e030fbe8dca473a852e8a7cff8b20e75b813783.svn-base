@@ -1,0 +1,72 @@
+<div class="box-header with-border">
+  <h1><center>Resoluciones</center></h1> 
+</div>
+<div class="box">
+  <div class="box-body">
+    <div class="container-fluid"> 
+    <div class="row">
+      <div class="col-md-10">
+        <div class="container-fluid"> 
+        <div class="row">
+          <div class="col-md-2">
+            <p>Filtrar por:</p>
+          </div> 
+        <div class="input-group">
+          <div class="col-md-4">
+            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">Nro. Resolucion
+              <span class="fa fa-caret-down"></span>
+            </button>
+            <ul class="dropdown-menu">
+              <li><a href="#">Fecha</a></li>
+              <li><a href="#">Expediente asociado</a></li>
+              <li><a href="#">Emitido por</a></li>
+            </ul>   
+          </div>
+          <div class="col-md-6">
+            <input type="textfiled" class="form-control">
+          </div>
+        </div>
+        </div>
+      </div>
+      </div>
+    <div class="col-md-2">
+        <%= link_to 'Nueva Resolucion', new_resolution_path,  {:class=>"btn btn-primary"}%>
+      </div>  
+  </div>
+  </div>
+      <br>
+    <table id= "resolutions_table" class="table table-bordered table-striped">
+  <thead align="center">
+    <tr>
+      <th>Fecha</th>
+      <th>Numero</th>
+      <th>Resuelto por</th>
+      <th>Exp. Asociado</th>
+      <th>Acciones</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @resolutions.each do |resolution| %>
+      <tr>
+        <td><%= resolution.fecha %></td>
+        <td><%= resolution.numero %></td>
+        <td><%= resolution.autoritie.nombre if resolution.autoritie %></td>
+        <td><%= resolution.record_id %></td>
+        <td><%= link_to '', resolution, class: "btn btn-primary glyphicon glyphicon-eye-open", title: 'Ver', 'data-toggle' => 'tooltip', 'data-placement' => 'rigth' %>
+        <%= link_to '', edit_resolution_path(resolution), class: 'btn btn-warning glyphicon glyphicon-pencil', title: 'Editar', 'data-toggle' => 'tooltip', 'data-placement' => 'rigth'%>
+        <%= link_to '', resolution, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger glyphicon glyphicon-trash', title: 'Eliminar', 'data-toggle' => 'tooltip', 'data-placement' => 'rigth' %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+  </div>
+</div>
+
+
+
+
+
+<br>
+
+ 

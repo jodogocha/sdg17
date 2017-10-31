@@ -1,0 +1,5 @@
+<div class="box-header with-border">
+  <h1><center>Editar Tipo</center></h1>
+</div>
+
+<%= render 'form', tpersona: @tpersona %>

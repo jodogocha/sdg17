@@ -1,0 +1,3 @@
+class Tpersona < ApplicationRecord
+  has_many :people
+end

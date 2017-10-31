@@ -1,0 +1,4 @@
+class Person < ApplicationRecord
+	has_many :record
+  belongs_to :tpersona
+end

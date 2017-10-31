@@ -1,0 +1,25 @@
+// Place all the styles related to the resolutions controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+.content {
+	background-color: white;
+}
+.content h1 {
+	color: #d1d1d1;
+	font: italic bold 30px Georgia, serif;
+}
+
+.content .box {
+	box-shadow: 0 0 20px 5px rgba(0, 0, 0, .15);
+	background: #d8d8d8;
+}
+
+.box-header.with-border {
+    border-bottom: 1px solid #f4f4f4;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    background-color: #00327b;
+}
+
+    
+

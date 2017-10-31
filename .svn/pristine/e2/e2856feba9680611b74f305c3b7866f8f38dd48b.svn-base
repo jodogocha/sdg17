@@ -1,0 +1,5 @@
+class AddDependencyRefToRecords < ActiveRecord::Migration[5.0]
+  def change
+    add_reference :records, :dependency, foreign_key: true
+  end
+end

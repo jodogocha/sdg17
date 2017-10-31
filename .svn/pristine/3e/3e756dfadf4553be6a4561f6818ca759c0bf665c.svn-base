@@ -1,0 +1,107 @@
+<%= form_for :role, url: {action: 'create'} do |f| %>
+ 
+  
+  <div class="box-body">  
+    <div class="row">
+      <div class="col-xs-12">
+        <label for="visto">Nombre</label>
+        <%= f.text_field :name, class: "form-control", autofocus: true %>
+      </div>
+    </div>
+      <!-- inicion de autorizaciones-->
+    <div class="box-body">
+      <div class="form-group">
+        <h4 class="box-title">Acciones</h4>
+        <div class="col-md-12">
+          <table class="table table-bordered table-striped">
+            <thead>
+              <tr>
+                <th>
+                    <label>Usuarios</label>
+                </th>
+                <th>
+                    <label>Personas</label>
+                </th>
+                <th>
+                    <label>Mesa de entrada</label>
+                </th>
+                <th>
+                    <label>Trámites</label>
+                </th>
+                <th>
+                    <label>Resolución</label>
+                </th>
+                <th>
+                    <label>Informe</label>
+                </th>
+                <th>
+                    <label>Auditoría</label>
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>
+                    <p><input type="checkbox"> <span>Crear</span></p>
+                    <p><input type="checkbox"> <span>Eliminar</span></p>
+                    <p><input type="checkbox"> <span>Ver</span></p>
+                    <p><input type="checkbox"> <span>Editar</span></p>
+                 </td>
+
+                <td>
+                    <p><input type="checkbox"> <span>Crear</span></p>
+                    <p><input type="checkbox"> <span>Eliminar</span></p>
+                    <p><input type="checkbox"> <span>Ver</span></p>
+                    <p><input type="checkbox"> <span>Editar</span></p>
+                 </td>
+
+                <td>
+                    <p><input type="checkbox"> <span>Crear</span></p>
+                    <p><input type="checkbox"> <span>Eliminar</span></p>
+                    <p><input type="checkbox"> <span>Ver</span></p>
+                    <p><input type="checkbox"> <span>Editar</span></p>
+                 </td>
+
+                <td>
+                    <p><input type="checkbox"> <span>Crear</span></p>
+                    <p><input type="checkbox"> <span>Eliminar</span></p>
+                    <p><input type="checkbox"> <span>Ver</span></p>
+                    <p><input type="checkbox"> <span>Editar</span></p>
+                 </td>
+
+                <td>
+                    <p><input type="checkbox"> <span>Crear</span></p>
+                    <p><input type="checkbox"> <span>Eliminar</span></p>
+                    <p><input type="checkbox"> <span>Ver</span></p>
+                    <p><input type="checkbox"> <span>Editar</span></p>
+                 </td>
+
+                <td>                
+                  <p><input type="checkbox"> <span>Crear</span></p>
+                  <p><input type="checkbox"> <span>Eliminar</span></p>
+                  <p><input type="checkbox"> <span>Ver</span></p>
+                  <p><input type="checkbox"> <span>Editar</span></p>
+                 </td>
+                 <td>                
+                  <p><input type="checkbox"> <span>Crear</span></p>
+                  <p><input type="checkbox"> <span>Eliminar</span></p>
+                  <p><input type="checkbox"> <span>Ver</span></p>
+                  <p><input type="checkbox"> <span>Editar</span></p>
+                 </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    <!-- fin de autorizaciones-->
+    <div class="col-xs-12 modal-footer" >
+      <%= f.button :submit, class: "btn btn-primary active",  "data-toggle" => "tooltip", "data-placement" => "bottom", "title" => "Guardar"  do %>
+        <spm class="glyphicon glyphicon-floppy-disk"></spm>
+      <% end %>
+      <%= link_to roles_path, class: "btn btn-danger", "data-toggle" => "tooltip", "data-placement" => "bottom", "title" => "Cancelar" do %>
+        <span class="glyphicon glyphicon-floppy-remove"></span>
+      <% end %>
+    </div>
+  </div>
+<% end %>

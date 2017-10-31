@@ -1,0 +1,4 @@
+class ResolutionsType < ApplicationRecord
+	resourcify
+	has_one :resolution
+end

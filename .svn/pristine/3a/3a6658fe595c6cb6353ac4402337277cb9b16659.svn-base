@@ -1,0 +1,65 @@
+<div class="box-header with-border">
+  <h1><center>Expedientes</center></h1> 
+</div>
+<div class="box">
+  <div class="box-body">
+    <div class="container-fluid"> 
+    <div class="row">
+      <div class="col-md-10">
+        <div class="container-fluid"> 
+        <div class="row">
+          <div class="col-md-2">
+            <p>Filtrar por:</p>
+          </div> 
+        <div class="input-group">
+          <div class="col-md-4">
+            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">Nro. Expediente
+              <span class="fa fa-caret-down"></span>
+            </button>
+            <ul class="dropdown-menu">
+              <li><a href="#">Dep. Actual</a></li>
+              <li><a href="#">Dep. Destino</a></li>
+              <li><a href="#">Solicitante</a></li>
+            </ul>   
+          </div>
+          <div class="col-md-6">
+            <input type="textfiled" class="form-control">
+          </div>
+        </div>
+        </div>
+      </div>
+      </div>
+  </div>
+  </div>
+  <br>
+    <table id= "record_table" class="table table-bordered table-striped">
+  <thead>
+    <tr>
+      <th>Número de Expediente</th>
+      <th>Solicitante</th>
+      <th>Dep. Actual</th>
+      <th>Dep. Destino</th>
+      <th>Estado</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @records.each do |record| %>
+      <tr>
+        <td><%= record.num_expediente %></td>
+        <td><%= record.person_id %></td>
+        <td><%= record.dependency_id %></td>
+        <td><%= record.dependency_id %></td>
+        <td><%= record.state_id %></td>
+        <td ><%= link_to 'Mostrar', record %></td>
+        <td ><%= link_to 'Editar', edit_record_path(record) %></td>
+        <td><%= link_to 'Eliminar', record, method: :delete, data: { confirm: 'Estas Seguro?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+  </div>
+</div>
+<br>
+        
+    

@@ -1,0 +1,30 @@
+</div>
+  </div> 
+  <div class="modal fade" id="show-modal1">
+  <div class="modal-dialog">
+    <!-- Modal content-->
+    <div class="modal-content">
+
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Expediente Nro. <%=@record.num_expediente%></h4>
+      </div>
+      
+      <div style="word-wrap: break-word;" class="modal-body">   
+        <p id="noti"><%= noti %></p>
+        <p>
+          <strong>Fecha:</strong>
+          <%= @record.fecha %>
+        </p>
+
+      
+    </div>
+    <div class="modal-footer">
+          <button type="button" class="btn btn-success">
+          <span class="glyphicon glyphicon-print"></span>
+        </button>
+          <button type="button" class="btn btn-danger" data-dismiss="modal"><span class="glyphicon glyphicon-remove-circle small"></span></button>
+        </div>
+   </div>
+ </div>
+</div>

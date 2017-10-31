@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<table class="table table-responsive">
+  <thead class="thead-inverse">
+  <tr>
+    <th>Nombre y Apellido</th>
+    <th>RUC o CI</th>
+    <th>E-mail</th>
+    <th>Contacto</th>
+    <th>Tipo</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td><%= @person.nombre %></td>
+    <td><%= @person.ruc_ci %></td>
+    <td><%= @person.correo %></td>
+    <td><%= @person.direccion %></td>
+    <td><%= @person.tpersona.tipo %></td>
+  </tr>
+  </tbody>
+</table>
+
+<%= link_to edit_person_path(@person), class: "btn btn-warning", style:"color:white", title: 'Editar', 'data-toggle' => 'tooltip' do %>
+    <spm class="glyphicon small glyphicon-pencil"></spm>
+<% end %> |
+<%= link_to people_path, class: "btn btn-info", style:"color:white", title: 'Volver', 'data-toggle' => 'tooltip', 'data-placement' => 'rigth' do %>
+    <span class="glyphicon small glyphicon-arrow-left"></span>
+<% end %>

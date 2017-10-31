@@ -1,0 +1,23 @@
+<p id="notice"><%= notice %></p>
+
+<table class="table table-responsive">
+  <thead class="thead-inverse">
+  <tr>
+    <th>Nombre y Apellido</th>
+    <th>RUC o CI</th>
+    <th>E-mail</th>
+    <th>Contacto</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td><%= @person.nombre %></td>
+    <td><%= @person.ruc_ci %></td>
+    <td><%= @person.correo %></td>
+    <td><%= @person.direccion %></td>
+  </tr>
+  </tbody>
+</table>
+
+<a class="btn btn-warning" <%= link_to 'Editar', edit_person_path(@person) %></a>
+<a class="btn btn-danger" href="/people" role="button">Volver</a>
